@@ -25,10 +25,34 @@
 
   .column-full,
   .column-half {
-    padding: 0 0.75rem;
+    /* padding: 0 0.75rem; */
   }
 
   .column-half {
     width: 50%;
   }
+
+  .row-one {
+    display: flex;
+  }
+
+  .row1-col2 {
+    width: 100%;
+
+    /* padding: 0 0 0 5px; */
+    margin: 0 0 0 15px;
+  }
+
+  /* .image {
+    padding: 0 2px 0 0;
+    display: block;
+  }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      padding: 0;
+      margin: 0;
+      display: block;
+    } */
 }
