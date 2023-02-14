@@ -12,9 +12,16 @@ function storeInput(e) {
   e.preventDefault();
   var $newObj = {};
   $newObj.title = document.forms[0].elements.title.value;
-  $newObj.url = document.forms[0].elements.url.value;
-  $newObj.url = document.forms[0].elements.notes.value;
+  $newObj.url = document.forms[0].elements.photo.value;
+  $newObj.notes = document.forms[0].elements.notes.value;
+  $newObj.intryId = data.nextEntryId;
+  data.nextEntryId += 1;
   // console.log($newObj);
+  data.entries.push($newObj);
+  // console.log(data);
+  var $image = document.querySelector('.image');
+  $image.src = 'images/placeholder-image-square.jpg';
+  $save.reset();
 }
 
 // if the submit button is hit, at that moment take the values in the three input areas and save them to the object
