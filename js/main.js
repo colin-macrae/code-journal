@@ -10,17 +10,11 @@ $save.addEventListener('submit', storeInput);
 
 function storeInput(e) {
   e.preventDefault();
-  // console.log(e.object);
-  // console.log('submitted');
-  // var $newObj = [
-  //   {
-  //     title: '',
-  //     url: '',
-  //     notes: '',
-  //     entryId: 0
-  //   }
-  // ];
-  // $newObj.url = $photoUrl.value;
+  var $newObj = {};
+  $newObj.title = document.forms[0].elements.title.value;
+  $newObj.url = document.forms[0].elements.url.value;
+  $newObj.url = document.forms[0].elements.notes.value;
+  // console.log($newObj);
 }
 
 // if the submit button is hit, at that moment take the values in the three input areas and save them to the object
