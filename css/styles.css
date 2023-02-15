@@ -33,7 +33,14 @@ img {
   margin: 0;
 }
 
-.title-label,
+.title-label {
+  margin: 0;
+  padding: 0 0 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  width: 100%;
+}
+
 .photo-label,
 .notes-label {
   margin: 10px 0 0;
@@ -41,11 +48,6 @@ img {
   font-size: 1.1rem;
   font-weight: 700;
   width: 100%;
-}
-
-.title-label {
-  margin-top: 0;
-  padding-top: 0:;
 }
 
 .save-button {
