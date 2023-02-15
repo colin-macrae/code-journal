@@ -23,12 +23,16 @@
     max-width: 900px;
   }
 
-  .column-full,
-  .column-half {
-    padding: 0 0.75rem;
-  }
-
   .column-half {
     width: 50%;
+  }
+
+  .row-one {
+    display: flex;
+  }
+
+  .row1-col2 {
+    width: 50%;
+    margin: 0 0 0 15px;
   }
 }
