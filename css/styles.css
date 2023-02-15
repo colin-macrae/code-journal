@@ -10,7 +10,14 @@ textarea {
   border-color: rgb(230, 230, 230);
   border-radius: 5px;
   font-family: sans-serif;
-  font-size: 12px;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+input[type="text"],
+input[type="url"] {
+  font-size: 19px;
+  font-weight: 400;
 }
 
 header {
