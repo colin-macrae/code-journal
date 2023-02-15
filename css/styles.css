@@ -20,10 +20,21 @@ input[type="url"] {
   font-weight: 400;
 }
 
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  outline-color: rgb(103, 43, 135);
+}
+
 header {
   background-color: rgb(103, 43, 135);
   color: white;
   padding: 12px 0;
+  font-size: 22px;
+}
+
+h1 {
+  font-size: 35px;
 }
 
 img {
