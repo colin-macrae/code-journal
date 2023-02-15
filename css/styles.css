@@ -86,4 +86,47 @@ button {
   .image {
     width: 50%;
   }
+
+  /* .entry-image {
+    width: 50%;
+  } */
+
+  .entries {
+    display: flex;
+  }
+
+  .title-and-notes {
+    margin: 0 0 0 35px;
+  }
+
+  .entry-notes {
+    font-size: 18px;
+  }
+}
+
+/* ENTRIES */
+form {
+  margin-bottom: 85px;
+}
+
+li img {
+  margin: 0 0 25px;
+}
+
+.entry-title {
+  margin: 0 0 -5px;
+}
+
+ul.no-bullets {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0 0 18px;
+}
+
+.entry-notes {
+  line-height: 1.7;
+  padding-bottom: 8px;
 }
