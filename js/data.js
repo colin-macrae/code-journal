@@ -7,23 +7,13 @@ var data = {
   nextEntryId: 1
 };
 
-// var newObj = [
-//   {
-//     title: '',
-//     url: '',
-//     notes: '',
-//     entryId: 0
-//   }
-// ];
+window.addEventListener('beforeunload', toJSON);
+function toJSON(e) {
+  var formEntriesToJson = JSON.stringify(data);
+  localStorage.setItem('javascript-local-storage', formEntriesToJson);
+}
 
-// newObj.title = 'Ada';
-// newObj.entryId = data.nextEntryId;
-// console.log(newObj);
-
-// newObj[1].title = 'hiThere';
-// console.log(newObj[1]);
-
-// newObj.push(data);
-// console.log(newObj);
-
-// data.push(newObj);
+if (localStorage.getItem('javascript-local-storage')) {
+  var jsonFromStorage = localStorage.getItem('javascript-local-storage');
+  data = JSON.parse(jsonFromStorage);
+}

@@ -1,5 +1,6 @@
 body {
   background-color: rgb(246, 246, 246);
+  font-family: sans-serif;
 }
 
 input,
@@ -8,6 +9,8 @@ textarea {
   height: 40px;
   border-color: rgb(230, 230, 230);
   border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 
 header {
