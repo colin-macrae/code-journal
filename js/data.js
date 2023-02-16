@@ -17,4 +17,4 @@ if (localStorage.getItem('javascript-local-storage')) {
   var jsonFromStorage = localStorage.getItem('javascript-local-storage');
   data = JSON.parse(jsonFromStorage);
 }
-// console.log(data.entries);
+// console.log('entries:', data.entries);

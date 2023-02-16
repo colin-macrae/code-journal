@@ -18,13 +18,24 @@
 <body>
 
   <header>
-    <div class="container">
-      Code Journal
+    <div class="container nav">
+      <div>Code Journal</div>
+      <a class="nav-entries" href="#">
+        Entries
+      </a>
     </div>
+
+
   </header>
 
   <main class="container">
-    <form data-view="entry-form">
+    <div class="entries-new">
+      <h1>Entries</h1>
+      <a class="new-button" href="#">
+        NEW
+      </a>
+    </div>
+    <form data-view="entry-form" class="entry-form">
       <h1>New Entry</h1>
 
       <div class="row-one">
@@ -40,20 +51,41 @@
         </div>
       </div>
 
-      <div class="notes-label"><label for="##">Notes</label></div>
-      <textarea name="notes" class="notes column-full" required="required" /></textarea>
+      <div class="notes-label"><label for="notes-id">Notes</label></div>
+      <textarea name="notes" class="notes column-full" required="required" id="notes"/></textarea>
 
       <div class="save-button"><button>SAVE</button></div>
     </form>
 
-    <div data-view="entries" class="">
+
+
+
+
+
+    <div data-view="entries" class="entries">
       <ul class="ul-no-bullets">
 
-        <!-- <p class="no-entries">No entries have been recorded</p> -->
+        <li class="show no-entries">No entries have been recorded</li>
+
+        <!-- <li class="entries">
+          <img src="https://miro.medium.com/max/1400/1*G0or3nXOtD3vVEvyEbCldQ.png" class="column-half" >
+          <div class="title-and-notes">
+            <h2 class="entry-title">Title</h2>
+            <p class="entry-notes">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium labore ipsam illum exercitationem
+              dolor veritatis, cumque expedita! Consectetur numquam ducimus culpa accusamus,
+            </p>
+          </div>
+        </li> -->
 
       </ul>
     </div>
   </main>
+
+
+
+
+
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
