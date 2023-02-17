@@ -28,6 +28,7 @@ function $submitInput(e) {
 function renderEntry(entry) {
   var $entryDomTree = document.createElement('li');
   $entryDomTree.setAttribute('class', 'entries');
+  $entryDomTree.setAttribute('data-entry-id', '#');
 
   var $entryImage = document.createElement('img');
   $entryImage.setAttribute('src', entry.url);
@@ -36,9 +37,14 @@ function renderEntry(entry) {
   var $entryTitleAndNotesDiv = document.createElement('div');
   $entryTitleAndNotesDiv.setAttribute('class', 'title-and-notes');
 
+  var $entryTitleDiv = document.createElement('div');
+
   var $entryTitle = document.createElement('h2');
   $entryTitle.setAttribute('class', 'entry-title');
   $entryTitle.textContent = entry.title;
+
+  var $penIcon = document.createElement('i');
+  $penIcon.setAttribute('class', 'fa-solid fa-pen');
 
   var $entryNotes = document.createElement('p');
   $entryNotes.setAttribute('class', 'entry-notes');
@@ -46,11 +52,14 @@ function renderEntry(entry) {
 
   $entryDomTree.appendChild($entryImage);
   $entryDomTree.appendChild($entryTitleAndNotesDiv);
-  $entryTitleAndNotesDiv.appendChild($entryTitle);
+  $entryTitleAndNotesDiv.appendChild($entryTitleDiv);
+  $entryTitleDiv.appendChild($entryTitle);
+  $entryTitleDiv.appendChild($penIcon);
   $entryTitleAndNotesDiv.appendChild($entryNotes);
-  return $entryDomTree;
 
+  return $entryDomTree;
 }
+// console.log(renderEntry(data.entries[0]));
 
 var $attachEntryDomTree = document.querySelector('.ul-no-bullets');
 
@@ -68,7 +77,7 @@ $save.addEventListener('submit', $toggleNoEntries);
 function $toggleNoEntries() {
   if (data.entries.length > 0) {
     document.querySelector('.no-entries').className =
-    'hide no-entries';
+      'hide no-entries';
   } else {
     document.querySelector('.no-entries').className =
       'show no-entries';

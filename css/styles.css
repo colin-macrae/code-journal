@@ -98,6 +98,27 @@ button {
   .entry-notes {
     font-size: 18px;
   }
+
+  .title-and-notes div i {
+    /* justify-content: space-between; */
+    margin: -15px 0 0 365px;
+    position: absolute;
+  }
+
+  .fa-pen::before {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title-and-notes div i {
+    margin: -15px 0 0 300px;
+    position: absolute;
+  }
+
+  .fa-pen::before {
+    font-size: 20px;
+  }
 }
 
 form {
