@@ -20,33 +20,29 @@ function $submitInput(e) {
   var $image = document.querySelector('.image');
   $image.src = 'images/placeholder-image-square.jpg';
   $save.reset();
+  $attachEntryDomTree.prepend(renderEntry($newObj));
+  $viewSwap('entries');
+  $toggleNoEntries();
 }
 
-// BEGIN ISSUE 2 user-can-view-their-entries
 function renderEntry(entry) {
   var $entryDomTree = document.createElement('li');
   $entryDomTree.setAttribute('class', 'entries');
-  // console.log($entryDomTree);
 
   var $entryImage = document.createElement('img');
   $entryImage.setAttribute('src', entry.url);
   $entryImage.setAttribute('class', 'column-half');
-  // console.log($entryImage);
 
   var $entryTitleAndNotesDiv = document.createElement('div');
   $entryTitleAndNotesDiv.setAttribute('class', 'title-and-notes');
-  // console.log($entryTitleAndNotesDiv);
 
   var $entryTitle = document.createElement('h2');
   $entryTitle.setAttribute('class', 'entry-title');
   $entryTitle.textContent = entry.title;
-  // console.log($entryTitle);
 
   var $entryNotes = document.createElement('p');
   $entryNotes.setAttribute('class', 'entry-notes');
   $entryNotes.textContent = entry.notes;
-
-  // console.log($entryNotes);
 
   $entryDomTree.appendChild($entryImage);
   $entryDomTree.appendChild($entryTitleAndNotesDiv);
@@ -55,7 +51,6 @@ function renderEntry(entry) {
   return $entryDomTree;
 
 }
-// renderEntry(data.entries[0]);
 
 var $attachEntryDomTree = document.querySelector('.ul-no-bullets');
 
@@ -65,12 +60,19 @@ function $loopEntriesAndCreateDom(e) {
     var singleEntryTree = renderEntry(data.entries[i]);
     $attachEntryDomTree.appendChild(singleEntryTree);
   }
+  $viewSwap(data.view);
+  $toggleNoEntries();
 }
 
-$save.addEventListener('submit', toggleNoEntries);
-function toggleNoEntries() {
-  document.querySelector('.no-entries').className =
+$save.addEventListener('submit', $toggleNoEntries);
+function $toggleNoEntries() {
+  if (data.entries.length > 0) {
+    document.querySelector('.no-entries').className =
     'hide no-entries';
+  } else {
+    document.querySelector('.no-entries').className =
+      'show no-entries';
+  }
 }
 
 function $viewSwap(viewName) {
@@ -78,17 +80,12 @@ function $viewSwap(viewName) {
     document.querySelector('.entries').className = 'entries';
     document.querySelector('.entry-form').className = 'entry-form hide';
     data.view = 'entries';
-    // console.log(data.view);
   } if (viewName === 'entry-form') {
     document.querySelector('.entries').className = 'entries hide';
     document.querySelector('.entry-form').className = 'entry-form';
     data.view = 'entry-form';
-    // console.log('log of data object view property:', data.view);
   }
 }
-
-// viewSwap('entries');
-// $viewSwap('entry-form');
 
 var $entriesButton = document.querySelector('.nav-entries');
 $entriesButton.addEventListener('click', $showEntries);

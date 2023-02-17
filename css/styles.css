@@ -87,10 +87,6 @@ button {
     width: 50%;
   }
 
-  /* .entry-image {
-    width: 50%;
-  } */
-
   .entries {
     display: flex;
   }
@@ -104,7 +100,6 @@ button {
   }
 }
 
-/* ENTRIES */
 form {
   margin-bottom: 85px;
 }
@@ -147,9 +142,6 @@ li {
 .nav-entries {
   margin: 4px 0 0 15px;
   font-size: 15px;
-
-  /* align-items: center;
-  justify-content: center; */
   color: white;
   text-decoration: none;
 }
@@ -173,7 +165,5 @@ li {
   height: 24px;
   width: 50px;
   padding-top: 5px;
-
-  /* margin-bottom: 5px; */
   font-size: 12px;
 }
