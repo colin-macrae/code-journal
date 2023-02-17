@@ -39,7 +39,7 @@ h1 {
 
 img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0;
   margin: 0;
 }
@@ -86,4 +86,84 @@ button {
   .image {
     width: 50%;
   }
+
+  .entries {
+    display: flex;
+  }
+
+  .title-and-notes {
+    margin: 0 0 0 35px;
+  }
+
+  .entry-notes {
+    font-size: 18px;
+  }
+}
+
+form {
+  margin-bottom: 85px;
+}
+
+li img {
+  margin: 0 0 25px;
+}
+
+.entry-title {
+  margin: 0 0 -5px;
+}
+
+ul.ul-no-bullets {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0 0 18px;
+}
+
+.entry-notes {
+  line-height: 1.7;
+  padding-bottom: 8px;
+}
+
+.no-entries {
+  text-align: center;
+  margin: 250px 0;
+}
+
+.hide {
+  display: none;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-entries {
+  margin: 4px 0 0 15px;
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.entries-new {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entries-new h1 {
+  font-size: 20px;
+}
+
+.entries-new a {
+  text-align: center;
+  text-decoration: none;
+  background-color: rgb(103, 43, 135);
+  border-radius: 3px;
+  color: white;
+  height: 24px;
+  width: 50px;
+  padding-top: 5px;
+  font-size: 12px;
 }
