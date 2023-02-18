@@ -48,14 +48,19 @@ function $submitInput(e) {
     $newObj.notes = document.forms[0].elements.notes.value;
     // // console.log('first data entry:', data.entries[1]);
     // // console.log('new obj:', $newObj);
+    // console.log('newObj updated');
 
-    // for (var i = 0; i < data.entries.length; i++) {
-    //   if (data.entries[i] === $newObj.entryId) {
-    //     console.log('match found');
-    //     data.entries[i] = $newObj;
-    //     // console.log('new obj:', $newObj);
-    //   }
-    // }
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === $newObj.entryId) {
+        // console.log('match found');
+        // console.log('data.entries before updating:', data.entries[i]);
+        // console.log('update entries to new obj:', $newObj);
+        data.entries[i] = $newObj;
+        // console.log('entries after updating:', data.entries[i]);
+        // console.log('new obj:', $newObj);
+        // console.log('updated. entries after updating:', data.entries[i]);
+      }
+    }
 
   }
 }
