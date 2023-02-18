@@ -37,18 +37,22 @@ function $submitInput(e) {
   $viewSwap('entries');
   $toggleNoEntries();
   if (data.editing === null) {
-    // console.log('do nothing different');
+    // console.log('data editing is null');
   } else {
     $newObj.entryId = data.editing.entryId;
-    // console.log($newObj);
-    // $newObj.title = document.forms[0].elements.title.value;
-    // $newObj.url = document.forms[0].elements.photo.value;
-    // $newObj.notes = document.forms[0].elements.notes.value;
-    for (var i = 0; i < data.entries.length; i++) {
-      if (data.entries[i] === $newObj.entryId) {
-        data.entries[i] = $newObj;
-      }
-    }
+    // console.log('neew obj entry id:', $newObj.entryId, 'neew obj:',$newObj);
+    $newObj.title = document.forms[0].elements.title.value;
+    $newObj.url = document.forms[0].elements.photo.value;
+    $newObj.notes = document.forms[0].elements.notes.value;
+    // console.log('first data entry:', data.entries[1]);
+    // console.log('new obj:', $newObj);
+
+
+    // for (var i = 0; i < data.entries.length; i++) {
+    //   if (data.entries[i] === $newObj.entryId) {
+    //     data.entries[i] = $newObj;
+    //   }
+    // }
 
   }
 }
@@ -169,7 +173,7 @@ function $penButtonFunction(e) {
   // after locating it, pop the whole object into data.editing
   var $pensClosestEntryId = e.target.closest('li').getAttribute('data-entry-id');
   for (var i = 0; i < data.entries.length; i++) {
-    if ($pensClosestEntryId === data.entries[i].entryId) {
+    if ($pensClosestEntryId == data.entries[i].entryId) {
       data.editing = data.entries[i];
       // console.log(data.editing.title);
     }
