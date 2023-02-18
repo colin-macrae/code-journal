@@ -38,19 +38,22 @@ function $submitInput(e) {
   $toggleNoEntries();
   if (data.editing === null) {
     // console.log('data editing is null');
-  } else {
+  } else if (data.editing !== null) {
     $newObj.entryId = data.editing.entryId;
+    // console.log($newObj.entryId);
+    // console.log(data.editing.entryId);
     // console.log('neew obj entry id:', $newObj.entryId, 'neew obj:',$newObj);
     $newObj.title = document.forms[0].elements.title.value;
     $newObj.url = document.forms[0].elements.photo.value;
     $newObj.notes = document.forms[0].elements.notes.value;
-    // console.log('first data entry:', data.entries[1]);
-    // console.log('new obj:', $newObj);
-
+    // // console.log('first data entry:', data.entries[1]);
+    // // console.log('new obj:', $newObj);
 
     // for (var i = 0; i < data.entries.length; i++) {
     //   if (data.entries[i] === $newObj.entryId) {
+    //     console.log('match found');
     //     data.entries[i] = $newObj;
+    //     // console.log('new obj:', $newObj);
     //   }
     // }
 
