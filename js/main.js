@@ -40,28 +40,30 @@ function $submitInput(e) {
     // console.log('data editing is null');
   } else if (data.editing !== null) {
     $newObj.entryId = data.editing.entryId;
-    // console.log($newObj.entryId);
-    // console.log(data.editing.entryId);
-    // console.log('neew obj entry id:', $newObj.entryId, 'neew obj:',$newObj);
     $newObj.title = document.forms[0].elements.title.value;
     $newObj.url = document.forms[0].elements.photo.value;
     $newObj.notes = document.forms[0].elements.notes.value;
-    // // console.log('first data entry:', data.entries[1]);
-    // // console.log('new obj:', $newObj);
-    // console.log('newObj updated');
 
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === $newObj.entryId) {
-        // console.log('match found');
-        // console.log('data.entries before updating:', data.entries[i]);
-        // console.log('update entries to new obj:', $newObj);
         data.entries[i] = $newObj;
-        // console.log('entries after updating:', data.entries[i]);
-        // console.log('new obj:', $newObj);
-        // console.log('updated. entries after updating:', data.entries[i]);
       }
     }
 
+    var $allLiElmnts = document.querySelectorAll('li');
+    for (var j = 0; j < $allLiElmnts.length; j++) {
+      // console.log($allLiElmnts[j].getAttribute('data-entry-id'));
+      // console.log($allLiElmnts);
+      // console.log(data.editing.entryId);
+      if ($allLiElmnts[j].getAttribute('data-entry-id') === data.editing.entryId) {
+        // console.log('found a match!');
+        $allLiElmnts[j].replaceWith(renderEntry($newObj));
+      }
+      // else console.log('no match');
+    }
+    var $newEntryTitle = document.querySelector('#new-entry-edit-entry');
+    $newEntryTitle.textContent = 'New Entry';
+    data.editing = null;
   }
 }
 
@@ -181,7 +183,7 @@ function $penButtonFunction(e) {
   // after locating it, pop the whole object into data.editing
   var $pensClosestEntryId = e.target.closest('li').getAttribute('data-entry-id');
   for (var i = 0; i < data.entries.length; i++) {
-    if ($pensClosestEntryId == data.entries[i].entryId) {
+    if (Number($pensClosestEntryId) === data.entries[i].entryId) {
       data.editing = data.entries[i];
       // console.log(data.editing.title);
     }
