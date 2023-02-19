@@ -1,8 +1,3 @@
-// GET PASTED URL AND RENDER IT IMMEDIATELY
-// this sets the image input into the url field as the image on the page by
-// listening to its input
-// grabbing the element by class name, and then
-// setting the "src" (using .src) of that element to the inputted link
 var $photoUrl = document.querySelector('.photo-url');
 $photoUrl.addEventListener('input', renderUrl);
 function renderUrl(e) {
@@ -10,15 +5,6 @@ function renderUrl(e) {
   $image.src = e.target.value;
 }
 
-// TAKE ALL DATA SUBMITTED IN FORM AND MAKE AN OBJECT
-// INCREMENT ENTRY ID
-// PUTS SUBMITTED OBJECT AT BEGINNING OF ENTRIES ARRAY
-// SETS IMAGE SRC BACK TO PLACEHOLDER IMAGE
-// RESETS THE FORM
-// ATTACHES/APPENDS THE RENDERED ENTRY (DOM) TO THE HTML
-// SWAPS BACK TO ENTRIES VIEW
-// DISPLAYS "ENTRIES"
-// DONE
 var $save = document.querySelector('form');
 $save.addEventListener('submit', $submitInput);
 function $submitInput(e) {
@@ -52,14 +38,9 @@ function $submitInput(e) {
 
     var $allLiElmnts = document.querySelectorAll('li');
     for (var j = 0; j < $allLiElmnts.length; j++) {
-      // console.log($allLiElmnts[j].getAttribute('data-entry-id'));
-      // console.log($allLiElmnts);
-      // console.log(data.editing.entryId);
       if ($allLiElmnts[j].getAttribute('data-entry-id') === data.editing.entryId) {
-        // console.log('found a match!');
         $allLiElmnts[j].replaceWith(renderEntry($newObj));
       }
-      // else console.log('no match');
     }
     var $newEntryTitle = document.querySelector('#new-entry-edit-entry');
     $newEntryTitle.textContent = 'New Entry';
@@ -67,12 +48,6 @@ function $submitInput(e) {
   }
 }
 
-// CREATE THE EMPTY TREE (WITH A PARAMETER) WITH ATTRIBURES & THEIR VALUE SOURCES
-// create each element and put in a var
-// set attributes of the var
-// set value sources for images/text (the argument will provide values)
-// append all elements to each other
-// return the full, assembled, empty tree, ready to be filled (called)
 function renderEntry(entry) {
   var $entryDomTree = document.createElement('li');
   $entryDomTree.setAttribute('class', 'entries');
@@ -107,12 +82,7 @@ function renderEntry(entry) {
 
   return $entryDomTree;
 }
-// console.log(renderEntry(data.entries[0]));
 
-// WHEN DOM FINISHES LOADING (OR REFRESHED), POPULATE TREES WITH ENTRIES IN STORAGE & ATTACH EACH TO DOM SO PAGE CAN RENDER
-// this connects your actual entry to the web page using renderEntry and putting a data.entries[i] in it, then it connects it to the dom
-// switch to view of data.view by grabbing the view from data.view
-// renders "no entries submitted"
 var $locationToAttachDom = document.querySelector('.ul-no-bullets');
 document.addEventListener('DOMContentLoaded', $loopEntriesAndCreateDom);
 function $loopEntriesAndCreateDom(e) {
@@ -124,7 +94,6 @@ function $loopEntriesAndCreateDom(e) {
   $toggleNoEntries();
 }
 
-// HIDE "NO ENTRIES SUBMITTED" WHEN ITEM SUBMITTED
 $save.addEventListener('submit', $toggleNoEntries);
 function $toggleNoEntries() {
   if (data.entries.length > 0) {
@@ -136,8 +105,6 @@ function $toggleNoEntries() {
   }
 }
 
-// SWAP THE VIEW FROM ENTRIES TO ENTRY FORM (FUNCTION)
-// this function is used in other places to switch the view according to certain conditions and tells data.view where we are (so other areas can know where we are by using data.view)
 function $viewSwap(viewName) {
   if (viewName === 'entries') {
     document.querySelector('.entries').className = 'entries';
@@ -150,7 +117,6 @@ function $viewSwap(viewName) {
   }
 }
 
-// SWAP THE VIEW WHEN "ENTIRES" BUTTON PRESSED, USING VIEWSWAP
 var $entriesButton = document.querySelector('.nav-entries');
 $entriesButton.addEventListener('click', $showEntries);
 function $showEntries(e) {
@@ -159,7 +125,6 @@ function $showEntries(e) {
   }
 }
 
-// SWAP THE VIEW WHEN "NEW(ENTRY)" IS PRESSED, USING VIEWSWAP
 var $newButton = document.querySelector('.new-button');
 $newButton.addEventListener('click', $showForm);
 function $showForm(e) {
@@ -168,24 +133,18 @@ function $showForm(e) {
   }
 }
 
-// 6:57 AM 2/17/2023
-
 var $ul = document.querySelector('.ul-no-bullets');
 $ul.addEventListener('click', $penButtonFunction);
 function $penButtonFunction(e) {
 
-  // when pen clicked, swap to form fiew
   if (e.target.tagName === 'I') {
     $viewSwap('entry-form');
   }
 
-  // after swapping to form view, locate the data of that entry in entries array
-  // after locating it, pop the whole object into data.editing
   var $pensClosestEntryId = e.target.closest('li').getAttribute('data-entry-id');
   for (var i = 0; i < data.entries.length; i++) {
     if (Number($pensClosestEntryId) === data.entries[i].entryId) {
       data.editing = data.entries[i];
-      // console.log(data.editing.title);
     }
   }
   var $titleInputField = document.querySelector('#title-id');
