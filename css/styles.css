@@ -151,6 +151,10 @@ li {
   margin: 250px 0;
 }
 
+.entries-new-hide {
+  display: none;
+}
+
 .hide {
   display: none;
 }
