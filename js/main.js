@@ -135,7 +135,6 @@ function $viewSwap(viewName) {
     document.querySelector('.entry-form').className = 'entry-form hide';
     document.querySelector('.entries-new-hide').className = 'entries-new';
     data.view = 'entries';
-    $save.reset();
   } if (viewName === 'entry-form') {
     document.querySelector('.entries').className = 'entries hide';
     document.querySelector('.entry-form').className = 'entry-form';
