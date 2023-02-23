@@ -29,19 +29,20 @@
   </header>
 
   <main class="container">
-    <div class="entries-new">
+    <div class="entries-new-hide">
       <h1>Entries</h1>
       <a class="new-button" href="#">
         NEW
       </a>
     </div>
     <form data-view="entry-form" class="entry-form">
-      <h1>New Entry</h1>
+      <h1 id="new-entry-edit-entry">New Entry</h1>
 
       <div class="row-one">
         <img src="images/placeholder-image-square.jpg" class="image">
 
         <div class="row1-col2">
+
           <div class="title-label column-half"><label class="title" for="title-id">Title</label></div>
           <input type="text" name="title" id="title-id" class="column-half title-label" required="required" />
 
@@ -51,8 +52,8 @@
         </div>
       </div>
 
-      <div class="notes-label"><label for="notes">Notes</label></div>
-      <textarea name="notes" class="notes column-full" required="required" id="notes"/></textarea>
+      <div class="notes-label"><label for="notes-id">Notes</label></div>
+      <textarea name="notes" class="notes column-full" required="required" id="notes" /></textarea>
 
       <div class="save-button"><button>SAVE</button></div>
     </form>
@@ -65,7 +66,6 @@
       </ul>
     </div>
   </main>
-
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>

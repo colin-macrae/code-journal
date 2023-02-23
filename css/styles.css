@@ -98,6 +98,26 @@ button {
   .entry-notes {
     font-size: 18px;
   }
+
+  .title-and-notes div i {
+    margin: -15px 0 0 365px;
+    position: absolute;
+  }
+
+  .fa-pen::before {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title-and-notes div i {
+    margin: -15px 0 0 300px;
+    position: absolute;
+  }
+
+  .fa-pen::before {
+    font-size: 20px;
+  }
 }
 
 form {
@@ -131,6 +151,10 @@ li {
   margin: 250px 0;
 }
 
+.entries-new-hide {
+  display: none;
+}
+
 .hide {
   display: none;
 }
@@ -153,7 +177,7 @@ li {
 }
 
 .entries-new h1 {
-  font-size: 20px;
+  font-size: 35px;
 }
 
 .entries-new a {
