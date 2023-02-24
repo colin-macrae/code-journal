@@ -61,8 +61,25 @@ img {
   width: 100%;
 }
 
+.delete-and-save-buttons-div {
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 12px;
+  color: red;
+  padding-top: 15px;
+
+  /* display: none; */
+}
+
 .save-button {
   display: flex;
+
+  /* display: inline; */
   justify-content: flex-end;
   margin: 12px 0 0;
 }

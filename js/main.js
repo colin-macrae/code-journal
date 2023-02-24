@@ -13,12 +13,11 @@ function renderUrl(e) {
 // TAKE ALL DATA SUBMITTED IN FORM AND MAKE AN OBJECT
 // INCREMENT ENTRY ID
 // PUT SUBMITTED OBJECT AT BEGINNING OF ENTRIES ARRAY
-// SETS IMAGE SRC BACK TO PLACEHOLDER IMAGE
-// RESETS THE FORM
-// ATTACHES/APPENDS THE RENDERED ENTRY (DOM) TO THE HTML
-// SWAPS BACK TO ENTRIES VIEW
-// DISPLAYS "ENTRIES"
-// DONE
+// SET IMAGE SRC BACK TO PLACEHOLDER IMAGE
+// RESET THE FORM
+// ATTACH/APPEND THE TREE TO THE DOM
+// SWAP BACK TO ENTRIES VIEW
+// DISPLAY "ENTRIES"
 var $save = document.querySelector('form');
 $save.addEventListener('submit', $submitInput);
 function $submitInput(e) {
@@ -105,8 +104,12 @@ function renderEntry(entry) {
 // this connects your actual entry to the web page using renderEntry and putting a data.entries[i] in it, then it connects it to the dom
 // switch to view of data.view by grabbing the view from data.view
 // renders "no entries submitted"
+
+// select where u want to append the tree
 var $locationToAttachDom = document.querySelector('.ul-no-bullets');
+// listen for dom to finish loading
 document.addEventListener('DOMContentLoaded', $loopEntriesAndCreateDom);
+// after dom loads loop thru data.entries.  on each one, render it, then append it, then go to the next one
 function $loopEntriesAndCreateDom(e) {
   for (var i = 0; i < data.entries.length; i++) {
     var singleEntryTree = renderEntry(data.entries[i]);
@@ -151,6 +154,8 @@ function $showEntries(e) {
   if (e.target === $entriesButton) {
     $viewSwap('entries');
     $save.reset();
+    var $deleteButton = document.querySelector('.delete-button');
+    $deleteButton.className = 'delete-button hide';
   }
 }
 
@@ -160,6 +165,8 @@ $newButton.addEventListener('click', $showForm);
 function $showForm(e) {
   $save.reset();
   $viewSwap('entry-form');
+  var $deleteButton = document.querySelector('.delete-button');
+  $deleteButton.className = 'delete-button hide';
 }
 
 var $ul = document.querySelector('.ul-no-bullets');
@@ -169,6 +176,8 @@ function $penButtonFunction(e) {
   // when pen clicked, swap to form view
   if (e.target.tagName === 'I') {
     $viewSwap('entry-form');
+    var $deleteButton = document.querySelector('.delete-button');
+    $deleteButton.className = 'delete-button';
   }
 
   // after swapping to form view, locate the data of that entry in entries array
@@ -190,4 +199,6 @@ function $penButtonFunction(e) {
 
   var $newEntryTitle = document.querySelector('#new-entry-edit-entry');
   $newEntryTitle.textContent = 'Edit Entry';
+
+  // var $deleteEntryButton = document.querySelector('.delete-entry');
 }
