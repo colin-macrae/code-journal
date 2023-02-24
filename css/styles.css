@@ -124,6 +124,25 @@ button {
   .fa-pen::before {
     font-size: 20px;
   }
+
+  /* .delete-entry-background {
+
+  } */
+
+  .delete-entry-whitebox {
+    /* display: none; */
+    width: 400px;
+
+    /* font-size: 14px; */
+  }
+
+  .delete-this-entry-p {
+    font-size: 16px;
+  }
+
+  .delete-entry-background {
+    height: 1300px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -134,6 +153,14 @@ button {
 
   .fa-pen::before {
     font-size: 20px;
+  }
+
+  .delete-this-entry-p {
+    font-size: 13px;
+  }
+
+  .delete-entry-background {
+    height: 1050px;
   }
 }
 
@@ -172,10 +199,6 @@ li {
   display: none;
 }
 
-.hide {
-  display: none;
-}
-
 .nav {
   display: flex;
 }
@@ -207,4 +230,58 @@ li {
   width: 50px;
   padding-top: 5px;
   font-size: 12px;
+}
+
+.delete-entry-background {
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  background-color: rgba(33, 33, 33, 0.65);
+
+  /* height: 1050px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-entry-whitebox {
+  text-align: center;
+  background-color: white;
+  padding: 30px 30px 10px;
+  margin: -300px 20px 0;
+  border-radius: 3px;
+}
+
+.dlt-btn-cancel,
+.dlt-btn-confirm {
+  border: none;
+  width: 92px;
+  height: 40px;
+  margin: 0 0 20px;
+}
+
+.dlt-btn-cancel {
+  background-color: grey;
+  color: black;
+}
+
+.dlt-btn-confirm {
+  background-color: red;
+}
+
+.delete-this-entry-p {
+  padding: 0 0 20px;
+  font-weight: 700;
+
+  /* font-size: 14px; */
+}
+
+.delete-entry-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
 }

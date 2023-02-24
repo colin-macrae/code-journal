@@ -202,3 +202,10 @@ function $penButtonFunction(e) {
 
   // var $deleteEntryButton = document.querySelector('.delete-entry');
 }
+
+var $deleteBtn = document.querySelector('.delete-button');
+var $popupModal = document.querySelector('.delete-entry-background');
+$deleteBtn.addEventListener('click', $deleteEntryPopup);
+function $deleteEntryPopup() {
+  $popupModal.className = 'delete-entry-background';
+}
