@@ -209,3 +209,10 @@ $deleteBtn.addEventListener('click', $deleteEntryPopup);
 function $deleteEntryPopup() {
   $popupModal.className = 'delete-entry-background';
 }
+
+var $cancelBtn = document.querySelector('.dlt-btn-cancel');
+// var $popupModal = document.querySelector('.delete-entry-background');
+$cancelBtn.addEventListener('click', $cancelDelete);
+function $cancelDelete() {
+  $popupModal.className = 'delete-entry-background hide';
+}
