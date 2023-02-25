@@ -1,6 +1,5 @@
 /* exported data */
-
-// /////////////this page runs before main.js (it is above it in the HTML)
+// /////////////this file runs before main.js (it is above it in the HTML)
 var data = {
   view: 'entry-form',
   entries: [],

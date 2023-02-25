@@ -167,6 +167,8 @@ function $showForm(e) {
   $viewSwap('entry-form');
   var $deleteButton = document.querySelector('.delete-button');
   $deleteButton.className = 'delete-button hide';
+  var $image = document.querySelector('.image');
+  $image.src = 'images/placeholder-image-square.jpg';
 }
 
 var $ul = document.querySelector('.ul-no-bullets');
@@ -186,9 +188,12 @@ function $penButtonFunction(e) {
   for (var i = 0; i < data.entries.length; i++) {
     if (Number($pensClosestEntryId) === data.entries[i].entryId) {
       data.editing = data.entries[i];
-      // console.log('data.editing:', data.editing); //         DATA.EDITING
     }
   }
+
+  var $image = document.querySelector('.image');
+  $image.src = data.editing.url;
+
   var $titleInputField = document.querySelector('#title-id');
   $titleInputField.value = data.editing.title;
 
@@ -200,8 +205,6 @@ function $penButtonFunction(e) {
 
   var $newEntryTitle = document.querySelector('#new-entry-edit-entry');
   $newEntryTitle.textContent = 'Edit Entry';
-
-  // var $deleteEntryButton = document.querySelector('.delete-entry');
 }
 
 var $deleteBtn = document.querySelector('.delete-button');
@@ -212,33 +215,27 @@ function $deleteEntryPopup() {
 }
 
 var $cancelBtn = document.querySelector('.dlt-btn-cancel');
-// var $popupModal = document.querySelector('.delete-entry-background');
 $cancelBtn.addEventListener('click', $cancelDelete);
 function $cancelDelete() {
   $popupModal.className = 'delete-entry-background hide';
 }
 
 var $confirmDeleteBtn = document.querySelector('.dlt-btn-confirm');
-// var $popupModal = document.querySelector('.delete-entry-background');
 $confirmDeleteBtn.addEventListener('click', $confirmDeletion);
 function $confirmDeletion() {
-  // console.log('confirm clicked');
   for (var i = 0; i < data.entries.length; i++) {
     if (data.entries[i].entryId === data.editing.entryId) {
-      // console.log('matching id:', data.entries[i].entryId);
-      // console.log('data.entries:', data.entries);
-      data.entries.splice(data.entries[i], 1);
-      // data.splice(data.entries[i], 1);
-      // console.log('data.entries after deletion:', data.entries);
-      // console.log('matching id still exist?:', data.entries[i].entryId);
+      data.entries.splice(i, 1);
 
+      var $allLiElmnts = document.querySelectorAll('li');
+      for (var j = 0; j < $allLiElmnts.length; j++) {
+        if (Number($allLiElmnts[j].getAttribute('data-entry-id')) === data.editing.entryId) {
+          $allLiElmnts[j].remove();
+        }
+      }
     }
   }
+  $toggleNoEntries();
+  $cancelDelete();
+  $viewSwap('entries');
 }
-
-// var $confirmDeleteBtn = document.querySelector('.dlt-btn-cancel');
-// // var $popupModal = document.querySelector('.delete-entry-background');
-// $cancelBtn.addEventListener('click', $cancelDelete);
-// function $confirmDeletion() {
-//   $popupModal.className = 'delete-entry-background hide';
-// }
