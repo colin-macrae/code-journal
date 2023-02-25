@@ -186,6 +186,7 @@ function $penButtonFunction(e) {
   for (var i = 0; i < data.entries.length; i++) {
     if (Number($pensClosestEntryId) === data.entries[i].entryId) {
       data.editing = data.entries[i];
+      // console.log('data.editing:', data.editing); //         DATA.EDITING
     }
   }
   var $titleInputField = document.querySelector('#title-id');
@@ -216,3 +217,28 @@ $cancelBtn.addEventListener('click', $cancelDelete);
 function $cancelDelete() {
   $popupModal.className = 'delete-entry-background hide';
 }
+
+var $confirmDeleteBtn = document.querySelector('.dlt-btn-confirm');
+// var $popupModal = document.querySelector('.delete-entry-background');
+$confirmDeleteBtn.addEventListener('click', $confirmDeletion);
+function $confirmDeletion() {
+  // console.log('confirm clicked');
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+      // console.log('matching id:', data.entries[i].entryId);
+      // console.log('data.entries:', data.entries);
+      data.entries.splice(data.entries[i], 1);
+      // data.splice(data.entries[i], 1);
+      // console.log('data.entries after deletion:', data.entries);
+      // console.log('matching id still exist?:', data.entries[i].entryId);
+
+    }
+  }
+}
+
+// var $confirmDeleteBtn = document.querySelector('.dlt-btn-cancel');
+// // var $popupModal = document.querySelector('.delete-entry-background');
+// $cancelBtn.addEventListener('click', $cancelDelete);
+// function $confirmDeletion() {
+//   $popupModal.className = 'delete-entry-background hide';
+// }

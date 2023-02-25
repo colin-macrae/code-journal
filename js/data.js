@@ -7,7 +7,6 @@ var data = {
   editing: null,
   nextEntryId: 1
 };
-
 // UPON PAGE UNLOAD, SEND ALL 'DATA' TO LOCAL STORAGE IN JSON FORMAT
 // if this is not done, the data will be refreshed (lost!)
 window.addEventListener('beforeunload', toJSON);
