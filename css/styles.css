@@ -61,6 +61,19 @@ img {
   width: 100%;
 }
 
+.delete-and-save-buttons-div {
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  position: absolute;
+  bottom: 12px;
+  color: red;
+  padding-top: 15px;
+}
+
 .save-button {
   display: flex;
   justify-content: flex-end;
@@ -107,6 +120,29 @@ button {
   .fa-pen::before {
     font-size: 20px;
   }
+
+  .delete-entry-whitebox {
+    width: 400px;
+  }
+
+  .delete-this-entry-p {
+    font-size: 16px;
+  }
+
+  .delete-entry-background {
+    height: 1300px;
+  }
+
+  /* "No entries have been recorded" text */
+  .ul-no-bullets {
+    position: relative;
+  }
+
+  .no-entries {
+    width: 300px;
+    left: 290px;
+    position: absolute;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -117,6 +153,14 @@ button {
 
   .fa-pen::before {
     font-size: 20px;
+  }
+
+  .delete-this-entry-p {
+    font-size: 13px;
+  }
+
+  .delete-entry-background {
+    height: 1050px;
   }
 }
 
@@ -151,14 +195,6 @@ li {
   margin: 250px 0;
 }
 
-.entries-new-hide {
-  display: none;
-}
-
-.hide {
-  display: none;
-}
-
 .nav {
   display: flex;
 }
@@ -190,4 +226,53 @@ li {
   width: 50px;
   padding-top: 5px;
   font-size: 12px;
+}
+
+.delete-entry-background {
+  position: absolute;
+  top: 0;
+  background-color: rgba(33, 33, 33, 0.65);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-entry-whitebox {
+  text-align: center;
+  background-color: white;
+  padding: 30px 30px 10px;
+  margin: -300px 20px 0;
+  border-radius: 3px;
+}
+
+.dlt-btn-cancel,
+.dlt-btn-confirm {
+  border: none;
+  width: 92px;
+  height: 40px;
+  margin: 0 0 20px;
+}
+
+.dlt-btn-cancel {
+  background-color: grey;
+  color: black;
+}
+
+.dlt-btn-confirm {
+  background-color: red;
+}
+
+.delete-this-entry-p {
+  padding: 0 0 20px;
+  font-weight: 700;
+}
+
+.delete-entry-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
 }
